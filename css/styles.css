@@ -590,6 +590,11 @@ a.dotted-link:hover {
   color: #49515a;
 }
 
+.h_rule {
+    width=100%;
+    color: d3d3d3;
+}
+
 /* Credits */
 .credits ul li {
   margin-bottom: 10px;

@@ -27,6 +27,13 @@
     
     <!-- Theme CSS -->  
     <link id="theme-style" rel="stylesheet" href="assets/css/styles.css">
+
+    <!-- GitHub Activity Stream -->
+    <link rel="stylesheet" href="github-activity-0.1.5.min.css">
+
+    <script src="//code.jquery.com/jquery-1.11.0.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mustache.js/0.7.2/mustache.min.js"></script>
+    <script type="text/javascript" src="github-activity-0.1.5.min.js"></script>
     
 </head> 
 
@@ -201,16 +208,40 @@
                 <section class="github section">
                     <div class="section-inner">
                         <h2 class="heading">My GitHub</h2>
+                        <!--
                         <p>You can embed your GitHub contribution graph calendar using IonicaBizau's <a href="https://github.com/IonicaBizau/github-calendar" target="_blank">GitHub Calendar</a> widget. 
-                        
+                        -->
                         <div id="github-graph" class="github-graph">
+                            <!-- Prepare a container for your calendar. -->
+                            <script
+                              src="https://cdn.rawgit.com/IonicaBizau/github-calendar/gh-pages/dist/github-calendar.min.js"
+                            >
+                            </script>
 
+                            <!-- Optionally, include the theme (if you don't want to struggle to write the CSS) -->
+                            <link
+                              rel="stylesheet"
+                              href="https://cdn.rawgit.com/IonicaBizau/github-calendar/gh-pages/dist/github-calendar.css"
+                            />
+
+                            <!-- Prepare a container for your calendar. -->
+                            <div class="calendar">
+                                <!-- Loading stuff -->
+                                Loading the data just for you.
+                            </div>
+
+                            <script>
+                                new GitHubCalendar(".calendar", "jessicabrock");
+                            </script>
                         </div><!--//github-graph-->
 
                         <p>You can also embed your GitHub activities using Casey Scarborough's <a href="https://caseyscarborough.com/projects/github-activity/" target="_blank">GitHub Activity Stream</a> widget.        
-                        <!--//Usage: https://caseyscarborough.com/projects/github-activity/ -->                       
-                        <div id="ghfeed" class="ghfeed">
-                        </div><!--//ghfeed-->
+                        <!--//Usage: https://caseyscarborough.com/projects/github-activity/ -->
+                        <div id="feed">
+                            <script>
+                                GitHubActivity.feed({ username: "jessicabrock", selector: '#feed' });
+                            </script>
+                        </div><!--//feed-->
                         
                     </div><!--//secton-inner-->
                 </section><!--//section-->
@@ -222,9 +253,10 @@
                         <div class="content">
                             <ul class="list-unstyled">
                                 <li><i class="fas fa-map-marker-alt"></i><span class="sr-only">Location:</span> San Francisco, CA US</li>
-                                <li><i class="fas fa-envelope"></i><span class="sr-only">Email:</span><a href="mailto:jessicabrock03@gmail.com"> jessicabrock03 AT gmail DOT com</a></li>
-                                <li><i class="fas fa-link"></i><span class="sr-only">Website:</span><a href="https://www.pygirl.net"> PyGirl</a></li>
+                                <li><i class="fas fa-envelope"></i><span class="sr-only">Email: </span><a href="mailto:jessicabrock03@gmail.com"> jessicabrock03 AT gmail DOT com</a></li>
+                                <li><i class="fab fa-twitter"></i><span class="sr-only">Twitter: </span><a href="https://twitter.com/pygirl02"> PyGirl</a></li>
                             </ul>
+                            <hr class="h_rule">
                         </div><!--//content-->  
                     </div><!--//section-inner-->                 
                 </aside><!--//aside-->
@@ -234,12 +266,11 @@
                         <h2 class="heading">Skills</h2>
                         <div class="content">
                             <p class="intro">
-                                Intro about your skills goes here. Keep the list lean and only show your primary skillset. You can always provide a link to your Linkedin or Coderwall profile so people can get more info there.</p>
-                            
+                                I am a full-stack Python developer and data engineer. Please have a look at my portfolio and work history. Together we can build your vision.
+                            </p>
                             <div class="skillset">
-                               
                                 <div class="item">
-                                    <h3 class="level-title">Python &amp; Django<span class="level-label" data-toggle="tooltip" data-placement="left" data-animation="true" title="You can use the tooltip to explain more about your skill level..."><i class="fas fa-info-circle"></i>Expert</span></h3>
+                                    <h4 class="level-title">Python &amp; Flask/Django<span class="level-label" data-toggle="tooltip" data-placement="left" data-animation="true" title="Full stack, Python scripting, REST APIs">&nbsp;<i class="fas fa-info-circle"></i></span></h4>
                                     <div class="level-bar">
                                         <div class="level-bar-inner" data-level="96%">
                                         </div>                                      
@@ -247,7 +278,7 @@
                                 </div><!--//item-->
                                 
                                 <div class="item">
-                                    <h3 class="level-title">Javascript &amp; jQuery<span class="level-label" data-toggle="tooltip" data-placement="left" data-animation="true" title="You can use the tooltip to explain more about your skill level..."><i class="fas fa-info-circle"></i>Expert</span></h3>
+                                    <h4 class="level-title">Javascript<span class="level-label" data-toggle="tooltip" data-placement="left" data-animation="true" title="Vanilla JavaScript, coming soon React">&nbsp;<i class="fas fa-info-circle"></i></span></h4>
                                     <div class="level-bar">
                                         <div class="level-bar-inner" data-level="96%">
                                         </div>                                      
@@ -255,7 +286,7 @@
                                 </div><!--//item-->
                                 
                                 <div class="item">
-                                    <h3 class="level-title">HTML5, CSS3, SASS &amp; LESS<span class="level-label" data-toggle="tooltip" data-placement="left" data-animation="true" title="You can use the tooltip to explain more about your skill level..."><i class="fas fa-info-circle"></i>Expert</span></h3>
+                                    <h4 class="level-title">HTML5 &amp; CSS3<span class="level-label" data-toggle="tooltip" data-placement="left" data-animation="true" title="Dynamic responsive websites">&nbsp;<i class="fas fa-info-circle"></i></span></h4>
                                     <div class="level-bar">
                                         <div class="level-bar-inner" data-level="96%">
                                         </div>                                      
@@ -263,15 +294,17 @@
                                 </div><!--//item-->
                                 
                                 <div class="item">
-                                    <h3 class="level-title">Ruby on Rails<span class="level-label" data-toggle="tooltip" data-placement="left" data-animation="true" title="You can use the tooltip to explain more about your skill level..."><i class="fas fa-info-circle"></i>Pro</span></h3>
+                                    <h4 class="level-title">Databases<span class="level-label" data-toggle="tooltip" data-placement="left" data-animation="true" title="Oracle, PostgreSQL, CRUD and reporting">&nbsp;<i class="fas fa-info-circle"></i></span></h4>
                                     <div class="level-bar">
                                         <div class="level-bar-inner" data-level="85%">
                                         </div>                                      
                                     </div><!--//level-bar-->                                 
                                 </div><!--//item-->
-                                
-                                <p><a class="more-link" href="#"><i class="fas fa-external-link-alt"></i>More on Coderwall</a></p> 
-                            </div>              
+                                <!--
+                                <p><a class="more-link" href="#"><i class="fas fa-external-link-alt"></i>More on Coderwall</a></p>
+                                -->
+                            </div>
+                            <hr class="h_rule">
                         </div><!--//content-->  
                     </div><!--//section-inner-->                 
                 </aside><!--//section-->
@@ -288,7 +321,7 @@
                             </div><!--//item-->
                             
                             <p><a class="more-link" href="https://linkedin.com/in/jess-brock"><i class="fas fa-external-link-alt"></i>More on Linkedin</a></p>
-                            
+                            <hr class="h_rule">
                         </div><!--//content-->
                     </div><!--//section-inner-->
                 </aside><!--//section-->
@@ -307,6 +340,7 @@
                                 <h4 class="title"><i class="fas fa-graduation-cap"></i> BSc Business Administration</h4>
                                 <h4 class="university">Bowling Green State University <!-- <span class="year">(2008-2011)</span>--></h4>
                             </div><!--//item-->
+                            <hr class="h_rule">
                         </div><!--//content-->
                     </div><!--//section-inner-->
                 </aside><!--//section-->
@@ -337,20 +371,21 @@
                         </div>
                     </div>
                 </aside>
+                -->
                 <aside class="list music aside section">
                     <div class="section-inner">
                         <h2 class="heading">Favourite coding music</h2>
                         <div class="content">
                             <ul class="list-unstyled">
-                                <li><i class="fas fa-headphones"></i> <a href="#">Etiam hendrerit urna nunc</a></li>
-                                <li><i class="fas fa-headphones"></i> <a href="#">Ut sollicitudin in mauris non auctor</a></li>
-                                <li><i class="fas fa-headphones"></i> <a href="#">Etiam hendrerit urna nunc</a></li>
-                                <li><i class="fas fa-headphones"></i> <a href="#">Duis et felis bibendum</a></li>
+                                <li><i class="fas fa-headphones"></i> <a href="-->">This is Lana Del Rey</a></li>
+                                <li><i class="fas fa-headphones"></i> <a href="https://open.spotify.com/album/1XHEQqyatYvfK5cEJfkPeK">KD Lang - Ingenue</a></li>
+                                <li><i class="fas fa-headphones"></i> <a href="https://open.spotify.com/playlist/37i9dQZF1DX9PfVG3EqILr">This is Buena Vista Social Club</a></li>
                             </ul>
+                            <hr class="h_rule">
                         </div>
                     </div>
                 </aside>
-                -->
+
                 <aside class="blog aside section">
                     <div class="section-inner">
                         <h2 class="heading">Latest Blog Posts</h2>
@@ -359,6 +394,7 @@
                             <li><i class="fas fa-pencil-alt"></i> <a href="https://www.gremlin.com/chaos-monkey/" target="_blank">What is Chaos Monkey?</a></li>
                             <li><i class="fas fa-pencil-alt"></i> <a href="https://github.com/jdneo/vscode-leetcode/blob/master/README.md" target="_blank">Solving LeetCode Problems in VS Code</a></li>
                         </ul>
+                        <hr class="h_rule">
                     </div>
                 </aside>
                 <aside class="list conferences aside section">
